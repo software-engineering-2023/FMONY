@@ -1,0 +1,11 @@
+C:\Users\mimie\source\repos\onlinebank\onlinebank\bin\onlinebank.dll.config
+C:\Users\mimie\source\repos\onlinebank\onlinebank\bin\onlinebank.dll
+C:\Users\mimie\source\repos\onlinebank\onlinebank\bin\onlinebank.pdb
+C:\Users\mimie\source\repos\onlinebank\onlinebank\bin\onlinebank.xml
+C:\Users\mimie\source\repos\onlinebank\onlinebank\obj\Debug\onlinebank.vbproj.AssemblyReference.cache
+C:\Users\mimie\source\repos\onlinebank\onlinebank\obj\Debug\onlinebank.Resources.resources
+C:\Users\mimie\source\repos\onlinebank\onlinebank\obj\Debug\onlinebank.vbproj.GenerateResource.cache
+C:\Users\mimie\source\repos\onlinebank\onlinebank\obj\Debug\onlinebank.vbproj.CoreCompileInputs.cache
+C:\Users\mimie\source\repos\onlinebank\onlinebank\obj\Debug\onlinebank.dll
+C:\Users\mimie\source\repos\onlinebank\onlinebank\obj\Debug\onlinebank.xml
+C:\Users\mimie\source\repos\onlinebank\onlinebank\obj\Debug\onlinebank.pdb
