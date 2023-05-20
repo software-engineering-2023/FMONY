@@ -1,0 +1,275 @@
+﻿/* Global Styles */
+* {
+    margin: 0 0 17px 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+header {
+    position: fixed;
+    top: 1px;
+    left: -86px;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index : 99;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url("C:\Users\mimie\Downloads") no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.navigation a {
+    position: relative;
+    Font-size: 1.1em;
+    Color: #000000;
+    Text-decoration: none;
+    Font-weight: 500;
+    Margin-left: 40px;
+}
+    .navigation a::after {
+        Content: "";
+        Position: absolute;
+        Left: 0;
+        bottom: -6px;
+        Width: 100%;
+        Height: 3px;
+        Background: #fff;
+        Border-radius: 5px;
+        Transform: scaleX(0);
+        Transform-origin: right;
+        Transition: transform .5s;
+    }
+    .navigation a:hover::after {
+        Transform-origin: left;
+        Transform: scaleX(1);
+    }
+
+    nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 74%;
+    z-index: 1000;
+    top: 9px;
+    left: 317px;
+    height: 79px;
+}
+.navigation .btnLogin-popup {
+    font-size: 1.1em;
+    height: 50px;
+    width: 130px;
+    color: #000000;
+    background-color: #808080;
+    border: 2px solid #fff;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: .5s;
+}
+
+    .navigation .btnLogin-popup:hover {
+        background: #fff;
+        color: #162938;
+    }
+
+    .logo {
+        font-size: 2em;
+        color: #162938;
+        user-select: none;
+    }
+.logo img {
+    height: 50px;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 40%;
+    list-style: none;
+}
+
+    .nav-links li a {
+        display: block;
+        color: #000000;
+        text-decoration: none;
+        padding: 1rem;
+        transition: all 0.3s ease;
+    }
+
+        .nav-links li a:hover {
+            background-color: #f2f2f2;
+        }
+.wrapper {
+    position: relative;
+    width: 410px;
+    height: 433px;
+    background: transparent;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0,0,0,5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transform: scale(0);
+    transition:transform .5s ease,height .2s ease;
+    top: 126px;
+    left: 62px;
+}
+    .wrapper.active-popup {
+        transform: scale(1);
+    }
+    .wrapper.active {
+        height: 520px;
+    }
+.wrapper .form-box{
+    width:100%;
+    padding:40px;
+}
+    .wrapper .form-box.login {
+       transition:transform .18s ease;
+       transform:translateX(0);
+    }
+
+.wrapper.active .form-box.login {
+    transition: none;
+    transform: translateX(-400px);
+}
+    .wrapper .form-box.register {
+        position: absolute;
+        transition: none;
+        transform: translateX(400px);
+    }
+.wrapper.active .form-box.register {
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+    .wrapper .icon-close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 45px;
+        height: 45px;
+        background: #162938;
+        font-size: 2em;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom-left-radius: 20px;
+        cursor: pointer;
+        z-index: 1;
+    }
+
+    .form-box login h2 {
+    font-size: 2em;
+    color: #162938;
+    text-align: center;
+}
+.input-box{
+    position:relative;
+    width: 100%;
+    height: 40px;
+    border-bottom:2px solid #162938;
+    margin:30px 0;
+    top: 2px;
+    left: -30px;
+}
+    .input-box label{
+        position: absolute;
+        top:26%;
+        left:2px;
+        transform: translate(-50%);
+        font-size:1em;
+        color: #162938;
+        font-weight:500;
+        pointer-events:none;
+        transition:.5s;
+    }
+    .input-box input:focus ~ label,
+    .input-box input:focus ~ label{
+        top:-5px;
+    }
+    .input-box input {
+        border-style: none;
+    border-color: inherit;
+    border-width: medium;
+    width: 106%;
+        height: 100%;
+        background: transparent;
+        outline: none;
+        font-size:1em;
+        color: #162938;
+        font-weight:600;
+        padding: 0 35px 0 5px;
+
+    }
+        .input-box input .icon{
+            position:absolute;
+            right:8px;
+            font-size:1.2em;
+            color: #162938;
+            top: 50%;
+            line-height:57px;
+        }
+       .remember-forgot{
+           font-size:.9em;
+           color: #162938;
+           font-weight:500;
+           margin: -15px 0 15px;
+           display: flex;
+           justify-content: space-between;
+       }
+        .remember-forgot label input{
+            color: #162938;
+            margin-right: 3px;
+        }
+        .remember-forgot a{
+            color:#162938;
+            text-decoration: none;
+        }
+            .remember-forgot a:hover{
+                 text-decoration:underline;
+            }
+.btn {
+    width: 100%;
+    height: 45px;
+    background: #162938;
+    border: none;
+    outline: none;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:1em;
+    color:#fff;
+    font-weight:500;
+}
+.login-register{
+    font-size:.9em;
+    color: #162938;
+    text-align:center;
+    font-weight:500;
+    margin:25px;
+}
+    .login-register p a{
+        color:#162938;
+        text-decoration: none;
+        font-weight:600;
+    }
+        .login-register p a:hover{
+            text-decoration: underline;
+        }
+      
