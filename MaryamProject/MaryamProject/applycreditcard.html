@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Credit Card Application</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="bg-gray-200">
+    <div class="flex justify-center items-center min-h-screen">
+        <div class="max-w-md w-full p-6 bg-white rounded-lg shadow-md">
+            <h2 class="text-2xl font-bold text-center mb-6">Credit Card Application</h2>
+            <form>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Full Name</label>
+                    <input class="form-input rounded-md shadow-sm w-full" id="name" type="text" placeholder="Enter your full name">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email</label>
+                    <input class="form-input rounded-md shadow-sm w-full" id="email" type="email" placeholder="Enter your email address">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="phone">Phone Number</label>
+                    <input class="form-input rounded-md shadow-sm w-full" id="phone" type="tel" placeholder="Enter your phone number">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="address">Address</label>
+                    <input class="form-input rounded-md shadow-sm w-full" id="address" type="text" placeholder="Enter your address">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="dob">Date of Birth</label>
+                    <input class="form-input rounded-md shadow-sm w-full" id="dob" type="date">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="ssn">Social Security Number</label>
+                    <input class="form-input rounded-md shadow-sm w-full" id="ssn" type="text" placeholder="Enter your SSN">
+                </div>
+                <div class="mb-6">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="income">Annual Income</label>
+                    <input class="form-input rounded-md shadow-sm w-full" id="income" type="number" placeholder="Enter your annual income">
+                </div>
+                <div class="flex items-center justify-between">
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" id="submit" type="submit">Submit</button>
+                    <button class="bg-gray-400 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="reset">Reset</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById("submit").addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent form submission
+            // Check if any required fields are empty
+            var fullName = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var phoneNumber = document.getElementById("phone").value;
+            var address = document.getElementById("address").value;
+            var dob = document.getElementById("dob").value;
+            var loanAmount = document.getElementById("ssn").value;
+            var loanAmount = document.getElementById("income").value;
+
+            if (fullName === "" || email === "" || phoneNumber === "" || address === "" || dob === "" || loanAmount === "") {
+                alert('Please fill in the whole form.');
+            } else {
+                alert('Your request is submitted successfully.');
+                window.location.href = 'client.html'; // Redirect to another page
+            }
+        });
+    </script>
+</body>
+</html>

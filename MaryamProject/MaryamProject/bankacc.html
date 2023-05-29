@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Account Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body>
+    <div class="min-h-screen flex items-center justify-center bg-gray-200">
+        <div class="max-w-md w-full py-10 px-6 bg-white rounded-lg shadow-md">
+            <h2 class="text-center text-2xl font-bold mb-6">Account Management</h2>
+            <form>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="account-option">Account Option</label>
+                    <select class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="account-option">
+                        <option value="close-current">Close Current Account</option>
+                        <option value="close-another">Close Another Account</option>
+                        <option value="open-new">Open New Account</option>
+                    </select>
+                </div>
+                <div class="mb-4 hidden" id="close-current">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Close Current Account</label>
+                    <p class="text-gray-600">Are you sure you want to close your current account?</p>
+                </div>
+                <div class="mb-4 hidden" id="close-another">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="close-account-type">Close Another Account</label>
+                    <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="closed-account-name" type="text" placeholder="Account Name">
+                    <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="close-account-type" type="text" placeholder="Account Type">
+                    <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="close-account-number" type="text" placeholder="Account Number">
+                </div>
+                <div class="mb-4 hidden" id="open-new">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="new-account-form">Open New Account Form</label>
+                    <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="account-name" type="text" placeholder="Account Name">
+                    <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="account-type" type="text" placeholder="Account Type">
+                    <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="account-number" type="text" placeholder="Account Number">
+                </div>
+                <div class="flex items-center justify-between">
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" id="submit" type="submit">Submit</button>
+                    <button class="bg-gray-400 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="reset">Reset</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        var accountOption = document.getElementById("account-option");
+        var closeCurrent = document.getElementById("close-current");
+        var closeAnother = document.getElementById("close-another");
+        var openNew = document.getElementById("open-new");
+
+        accountOption.addEventListener("change", function () {
+            closeCurrent.classList.add("hidden");
+            closeAnother.classList.add("hidden");
+            openNew.classList.add("hidden");
+
+            var selectedOption = accountOption.value;
+
+            if (selectedOption === "close-current") {
+                closeCurrent.classList.remove("hidden");
+            } else if (selectedOption === "close-another") {
+                closeAnother.classList.remove("hidden");
+            } else if (selectedOption === "open-new") {
+                openNew.classList.remove("hidden");
+            }
+        });
+
+        document.getElementById("submit").addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent form submission
+
+            var selectedOption = accountOption.value;
+
+            if (selectedOption === "close-current") {
+                var confirmClose = confirm('Are you sure you want to close your current account?');
+                if (confirmClose) {
+                    alert('Your current account has been closed successfully.');
+                    window.location.href = 'register.html'; // Redirect to another page
+                }
+            } else if (selectedOption === "close-another") {
+                var accountType = document.getElementById("close-account-type").value;
+                var accountNumber = document.getElementById("close-account-number").value;
+                var accountName = document.getElementById("close-account-name").value;
+
+                if (accountType === "" || accountNumber === "" || accountName=="") {
+                    alert('Please fill in all the fields to close another account.');
+                } else {
+                    // Additional logic to process the closure of the specified account can be added here
+                    alert('The account closure request for ' + accountType + ' account with account number ' + accountNumber + ' has been processed successfully.');
+                    window.location.href = 'client.html'; // Redirect to another page
+                }
+            } else if (selectedOption === "open-new") {
+                var accountName = document.getElementById("account-name").value;
+                var accountType = document.getElementById("account-type").value;
+                var accountNumber = document.getElementById("account-number").value;
+
+                if (accountName === "" || accountType === "" || accountNumber === "") {
+                    alert('Please fill in all the fields to open a new account.');
+                } else {
+                    // Additional logic to process the new account opening can be added here
+                    alert('Your request to open a new ' + accountType + ' account (' + accountName + ') with account number ' + accountNumber + ' has been submitted successfully.');
+                    window.location.href = 'client.html'; // Redirect to another page
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Reminder Receiver</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="flex justify-center items-center h-screen bg-gray-200">
+        <div class="w-1/2 bg-white p-6 rounded-lg shadow">
+            <h1 class="text-2xl font-bold mb-4">Reminder Receiver</h1>
+
+            <ul class="list-disc pl-6 mb-4">
+                <li>Gas Bills - Due on 2023-06-01</li>
+                <li>Electricity Bills - Due on 2023-06-05</li>
+                <li>Water Bills - Due on 2023-06-10</li>
+                <li>Telephone Bills - Due on 2023-06-15</li>
+                <li>Credit Card Bills - Due on 2023-06-20</li>
+                <li>Loan Bills - Due on 2023-06-25</li>
+                <li>Internet Bills - Due on 2023-07-02</li>
+                <li>Rent - Due on 2023-07-10</li>
+                <li>Insurance Premium - Due on 2023-07-18</li>
+                <li>Subscription Renewal - Due on 2023-07-25</li>
+            </ul>
+
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" id="go-back">
+                Go Back
+            </button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("go-back").addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent default button behavior
+            window.location.href = 'client.html'; // Redirect to set reminder page
+        });
+    </script>
+</body>
+</html>

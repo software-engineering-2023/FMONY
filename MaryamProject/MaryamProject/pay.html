@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body>
+    <div class="container mx-auto mt-5">
+        <h1 class="text-2xl font-bold mb-4">Payment</h1>
+        <div x-data="{ category: '', creditCard: '', paymentType: '', paymentAmount: '', utility: '', loan: '', isFormSubmitted: false }">
+            <div class="mb-4">
+                <label class="block mb-2" for="category">Payment Category:</label>
+                <select x-model="category" id="category" class="border rounded px-3 py-2 w-full">
+                    <option value="" disabled selected>Select a category</option>
+                    <option value="credit-card">Credit Card Bill Payment</option>
+                    <option value="utility">Utility Payment</option>
+                    <option value="loan">Loan Interests</option>
+                </select>
+            </div>
+
+            <div x-show="category === 'credit-card'">
+                <!-- Credit Card Bill Payment Form -->
+                <h2 class="text-lg font-semibold mb-2">Credit Card Bill Payment</h2>
+                <div class="mb-4">
+                    <label class="block mb-2" for="credit-card-number">Credit Card Number:</label>
+                    <input x-model="creditCard" type="text" id="credit-card-number" class="border rounded px-3 py-2 w-full">
+                </div>
+                <div class="mb-4">
+                    <label class="block mb-2" for="payment-type">Payment Type:</label>
+                    <select x-model="paymentType" id="payment-type" class="border rounded px-3 py-2 w-full">
+                        <option value="" disabled selected>Select payment type</option>
+                        <option value="full">Full Payment</option>
+                        <option value="partial">Partial Payment</option>
+                    </select>
+                </div>
+                <div x-show="paymentType === 'partial'" class="mb-4">
+                    <label class="block mb-2" for="amount">Payment Amount:</label>
+                    <input x-model="paymentAmount" type="text" id="amount" class="border rounded px-3 py-2 w-full">
+                </div>
+
+                <button @click="submitForm" id="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">Submit Payment</button>
+
+                <p x-show="isFormSubmitted" class="text-green-600 mt-2">Payment submitted successfully!</p>
+
+                <p x-show="!isFormSubmitted && category && (category === 'credit-card' || category === 'utility' || category === 'loan') && (!creditCard || (paymentType === 'partial' && !paymentAmount))" class="text-red-600 mt-2">Please fill in all the required fields.</p>
+            </div>
+
+            <div x-show="category === 'utility'">
+                <!-- Utility Payment Form -->
+                <h2 class="text-lg font-semibold mb-2">Utility Payment</h2>
+                <div class="mb-4">
+                    <label class="block mb-2" for="utility-provider">Utility Provider:</label>
+                    <input x-model="utility" type="text" id="utility-provider" class="border rounded px-3 py-2 w-full">
+                </div>
+                <div class="mb-4">
+                    <label class="block mb-2" for="bill-amount">Bill Amount:</label>
+                    <input x-model="billAmount" type="number" id="bill-amount" class="border rounded px-3 py-2 w-full">
+                </div>
+                <div class="mb-4">
+                    <label class="block mb-2" for="utility-type">Choose Type:</label>
+                    <select x-model="utilityType" id="utility-type" class="border rounded px-3 py-2 w-full">
+                        <option value="select utility type">Select utility type</option>
+                        <option value="telephone">Telephone Bills</option>
+                        <option value="water">Water Bills</option>
+                        <option value="gas">Gas Bills</option>
+                        <option value="electricity">Electricity Bills</option>
+                    </select>
+                </div>
+                <!-- Add additional utility payment form fields here -->
+
+                <button @click="submitForm" id="submit-utility" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">Submit Payment</button>
+
+                <p x-show="isFormSubmitted && category === 'utility'" class="text-green-600 mt-2">Utility payment submitted successfully!</p>
+
+                <p x-show="!isFormSubmitted && category === 'utility' && (!utility || !billAmount || !utilityType)" class="text-red-600 mt-2">Please fill in all the required fields.</p>
+            </div>
+            <div x-show="category === 'loan'">
+                <!-- Loan Interests Form -->
+                <h2 class="text-lg font-semibold mb-2">Loan Interests</h2>
+                <div class="mb-4">
+                    <label class="block mb-2" for="loan-number">Loan Number:</label>
+                    <input x-model="loan" type="text" id="loan-number" class="border rounded px-3 py-2 w-full">
+                </div>
+                <div class="mb-4">
+                    <label class="block mb-2" for="loan-type">Loan Type:</label>
+                    <select id="loan-type" class="border rounded px-3 py-2 w-full">
+                        <option value="" disabled selected>Select loan type</option>
+                        <option value="personal-loan">Personal Loan</option>
+                        <option value="car-loan">Car Loan</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="block mb-2" for="interest-rate">Interest Rate:</label>
+                    <input type="text" id="interest-rate" class="border rounded px-3 py-2 w-full">
+                </div>
+                <!-- Add additional loan interests form fields here -->
+
+                <button @click="submitForm" id="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">Submit Payment</button>
+
+                <p x-show="isFormSubmitted" class="text-green-600 mt-2">Payment submitted successfully!</p>
+
+                <p x-show="!isFormSubmitted && category && (category === 'credit-card' || category === 'utility' || category === 'loan') && (!creditCard || (paymentType === 'partial' && !paymentAmount))" class="text-red-600 mt-2">Please fill in all the required fields.</p>
+            </div>
+        </div>
+
+
+
+
+        <script>
+            function submitForm() {
+                var category = document.getElementById("category").value;
+
+                if (category === 'credit-card') {
+                    var creditCard = document.getElementById("credit-card-number").value;
+                    var paymentType = document.getElementById("payment-type").value;
+                    var paymentAmount = document.getElementById("amount").value;
+
+                    if (!creditCard || (paymentType === 'partial' && !paymentAmount)) {
+                        alert('Please fill in all the required fields.');
+                    } else {
+                        alert('Your credit card payment has been submitted successfully.');
+                        // Redirect to another page
+                        window.location.href = 'client.html';
+                    }
+                } else if (category === 'utility') {
+                    var utility = document.getElementById("utility-provider").value;
+                    var bill = document.getElementById("bill-amount").value;
+                    var utilityType = document.getElementById("utility-type").value;
+
+                    if (!utility || !bill || utilityType =='select utility type') {
+                        alert('Please fill in all the required fields.');
+                    } else {
+                        alert('Your utility payment has been submitted successfully.');
+                        // Redirect to another page
+                        window.location.href = 'client.html';
+                    }
+                } else if (category === 'loan') {
+                    var loan = document.getElementById("loan-number").value;
+                    var interestRate = document.getElementById("interest-rate").value;
+
+                    if (!loan || !interestRate) {
+                        alert('Please fill in all the required fields.');
+                    } else {
+                        alert('Your loan payment has been submitted successfully.');
+                        // Redirect to another page
+                        window.location.href = 'client.html';
+                    }
+                } else {
+                    alert('Please select a payment category.');
+                }
+            }
+        </script>
+    </div>
+</body>
+</html>

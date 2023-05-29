@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body>
+    <div class="container mx-auto mt-8">
+        <h1 class="text-2xl font-bold mb-4">Transaction</h1>
+        <form>
+            <div class="mb-4">
+                <label for="transfer-type">Transfer Type:</label>
+                <select id="transfer-type" name="transfer-type" class="border border-gray-300 rounded px-2 py-1" onchange="showTransferFields()">
+                    <option value="">Select transfer type</option>
+                    <option value="domestic">Domestic Transfer</option>
+                    <option value="internal">Internal Transfer</option>
+                    <option value="international">International Transfer</option>
+                </select>
+            </div>
+            <div id="transfer-fields" style="display: none;">
+                <!-- Dynamic transfer fields will be inserted here -->
+            </div>
+            <button id="submit" type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Create Transaction</button>
+        </form>
+    </div>
+
+    <script>
+        function showTransferFields() {
+            var transferType = document.getElementById('transfer-type').value;
+            var transferFieldsContainer = document.getElementById('transfer-fields');
+            transferFieldsContainer.innerHTML = ''; // Clear previous fields
+
+            if (transferType === 'domestic') {
+                var senderAccountField = createFormField('sender-account', "Sender's Account:", 'text');
+                var recipientAccountField = createFormField('recipient-account', "Recipient's Account:", 'text');
+                var senderNameField = createFormField('sender-name', "Sender's Name:", 'text');
+                var recipientNameField = createFormField('recipient-name', "Recipient's Name:", 'text');
+                var senderAddressField = createFormField('sender-address', "Sender's Address:", 'text');
+                var recipientAddressField = createFormField('recipient-address', "Recipient's Address:", 'text');
+                var amountField = createFormField('amount', 'Amount:', 'number');
+                var descriptionField = createFormField('description', 'Description:', 'textarea');
+                transferFieldsContainer.appendChild(senderAccountField);
+                transferFieldsContainer.appendChild(recipientAccountField);
+                transferFieldsContainer.appendChild(senderNameField);
+                transferFieldsContainer.appendChild(recipientNameField);
+                transferFieldsContainer.appendChild(senderAddressField);
+                transferFieldsContainer.appendChild(recipientAddressField);
+                transferFieldsContainer.appendChild(amountField);
+                transferFieldsContainer.appendChild(descriptionField);
+            } else if (transferType === 'internal') {
+                var senderAccountField = createFormField('sender-account', "Sender's Account:", 'text');
+                var recipientAccountField = createFormField('recipient-account', "Recipient's Account:", 'text');
+                var amountField = createFormField('amount', 'Amount:', 'number');
+                var descriptionField = createFormField('description', 'Description:', 'textarea');
+                transferFieldsContainer.appendChild(senderAccountField);
+                transferFieldsContainer.appendChild(recipientAccountField);
+                transferFieldsContainer.appendChild(amountField);
+                transferFieldsContainer.appendChild(descriptionField);
+            } else if (transferType === 'international') {
+                var senderAccountField = createFormField('sender-account', "Sender's Account:", 'text');
+                var recipientAccountField = createFormField('recipient-account', "Recipient's Account:", 'text');
+                var recipientBankNameField = createFormField('recipient-bank-name', "Recipient's Bank Name:", 'text');
+                var recipientBankAddressField = createFormField('recipient-bank-address', "Recipient's Bank Address:", 'text');
+                var recipientSwiftCodeField = createFormField('recipient-swift-code', 'SWIFT Code:', 'text');
+                var amountField = createFormField('amount', 'Amount:', 'number');
+                var descriptionField = createFormField('description', 'Description:', 'textarea');
+                transferFieldsContainer.appendChild(senderAccountField);
+                transferFieldsContainer.appendChild(recipientAccountField);
+                transferFieldsContainer.appendChild(recipientBankNameField);
+                transferFieldsContainer.appendChild(recipientBankAddressField);
+                transferFieldsContainer.appendChild(recipientSwiftCodeField);
+                transferFieldsContainer.appendChild(amountField);
+                transferFieldsContainer.appendChild(descriptionField);
+            }
+
+            transferFieldsContainer.style.display = 'block';
+        }
+
+        function createFormField(id, label, type) {
+            var div = document.createElement('div');
+            div.classList.add('mb-4');
+            var fieldLabel = document.createElement('label');
+            fieldLabel.setAttribute('for', id);
+            fieldLabel.textContent = label;
+            var field = document.createElement('input');
+            field.setAttribute('type', type);
+            field.setAttribute('id', id);
+            field.setAttribute('name', id);
+            field.classList.add('border', 'border-gray-300', 'rounded', 'px-2', 'py-1');
+            div.appendChild(fieldLabel);
+            div.appendChild(field);
+            return div;
+        }
+
+        document.getElementById("submit").addEventListener('click', function (event) {
+            event.preventDefault();
+
+            var transferType = document.getElementById('transfer-type').value;
+            var senderAccount = document.getElementById('sender-account').value;
+            var recipientAccount = document.getElementById('recipient-account').value;
+            var senderName = document.getElementById('sender-name').value;
+            var recipientName = document.getElementById('recipient-name').value;
+            var senderAddress = document.getElementById('sender-address').value;
+            var recipientAddress = document.getElementById('recipient-address').value;
+            var recipientBankName = document.getElementById('recipient-bank-name').value;
+            var recipientBankAddress = document.getElementById('recipient-bank-address').value;
+            var recipientSwiftCode = document.getElementById('recipient-swift-code').value;
+            var transferAmount = document.getElementById('amount').value;
+            var description = document.getElementById('description').value;
+
+            if (transferType === 'domestic') {
+                if (senderAccount.trim() === '' || recipientAccount.trim() === '' || senderName.trim() === '' ||
+                    recipientName.trim() === '' || senderAddress.trim() === '' || recipientAddress.trim() === '' ||
+                    transferAmount.trim() === '' || description.trim() === '') {
+                    alert('Please fill in all the fields.');
+                    return;
+                }
+            } else if (transferType === 'internal') {
+                if (senderAccount.trim() === '' || recipientAccount.trim() === '' ||
+                    transferAmount.trim() === '' || description.trim() === '') {
+                    alert('Please fill in all the fields.');
+                    return;
+                }
+            } else if (transferType === 'international') {
+                if (senderAccount.trim() === '' || recipientAccount.trim() === '' || recipientBankName.trim() === '' ||
+                    recipientBankAddress.trim() === '' || recipientSwiftCode.trim() === '' ||
+                    transferAmount.trim() === '' || description.trim() === '') {
+                    alert('Please fill in all the fields.');
+                    return;
+                }
+            } else {
+                alert('Please select a transfer type.');
+                return;
+            }
+
+            // Perform actions with the form data (e.g., send a request to the server)
+
+            alert('Transaction created successfully!');
+        });
+    </script>
+</body>
+</html>
