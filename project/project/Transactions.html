@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Active Transactions - Bank Admin</title>
+    <style>
+        /* CSS styles for the active transactions page */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .header {
+            background-color: #333;
+            padding: 10px;
+            color: white;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .container {
+            margin-top: 20px;
+        }
+
+        .transaction-list {
+            background-color: #f2f2f2;
+            border-radius: 4px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .transaction-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .transaction-item {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #fff;
+            overflow: hidden;
+        }
+
+        .transaction-item .transaction-info {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .transaction-item .transaction-info p {
+            margin: 0;
+        }
+
+        .transaction-item .transaction-details {
+            margin-top: 10px;
+        }
+
+        .transaction-item .transaction-details p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        Active Transactions - Bank Admin
+    </div>
+
+    <div class="container">
+        <div class="transaction-list">
+            <div class="transaction-title">Recent Transactions</div>
+
+            <div class="transaction-item">
+                <div class="transaction-info">
+                    <p>Transaction ID: 123456789</p>
+                    <p>Amount: $500.00</p>
+                </div>
+                <div class="transaction-details">
+                    <p>From: John Doe</p>
+                    <p>To: Jane Smith</p>
+                    <p>Date: May 15, 2023</p>
+                    <p>Status: Pending</p>
+                </div>
+            </div>
+
+            <div class="transaction-item">
+                <div class="transaction-info">
+                    <p>Transaction ID: 987654321</p>
+                    <p>Amount: $200.00</p>
+                </div>
+                <div class="transaction-details">
+                    <p>From: Jane Smith</p>
+                    <p>To: John Doe</p>
+                    <p>Date: May 14, 2023</p>
+                    <p>Status: Completed</p>
+                </div>
+                <div class="transaction-item">
+                    <div class="transaction-info">
+                        <p>Transaction ID: 123456789</p>
+                        <p>Amount: $150.00</p>
+                    </div>
+                    <div class="transaction-details">
+                        <p>From: John Doe</p>
+                        <p>To: Sarah Johnson</p>
+                        <p>Date: May 20, 2023</p>
+                        <p>Status: Pending</p>
+                    </div>
+                </div>
+                
+                <div class="transaction-item">
+                    <div class="transaction-info">
+                        <p>Transaction ID: 987654321</p>
+                        <p>Amount: $75.50</p>
+                    </div>
+                    <div class="transaction-details">
+                        <p>From: Mark Thompson</p>
+                        <p>To: Emily Davis</p>
+                        <p>Date: May 18, 2023</p>
+                        <p>Status: Completed</p>
+                    </div>
+                </div>
+                
+                <div class="transaction-item">
+                    <div class="transaction-info">
+                        <p>Transaction ID: 567890123</p>
+                        <p>Amount: $300.00</p>
+                    </div>
+                    <div class="transaction-details">
+                        <p>From: Lisa Miller</p>
+                        <p>To: Michael Wilson</p>
+                        <p>Date: May 15, 2023</p>
+                        <p>Status: Completed</p>
+                    </div>
+                </div>
+                <div class="transaction-item">
+                    <div class="transaction-info">
+                        <p>Transaction ID: 654321098</p>
+                        <p>Amount: $120.00</p>
+                    </div>
+                    <div class="transaction-details">
+                        <p>From: Michael Johnson</p>
+                        <p>To: Samantha Roberts</p>
+                        <p>Date: May 12, 2023</p>
+                        <p>Status: Completed</p>
+                    </div>
+                </div>
+                
+                <div class="transaction-item">
+                    <div class="transaction-info">
+                        <p>Transaction ID: 789012345</p>
+                        <p>Amount: $50.75</p>
+                    </div>
+                    <div class="transaction-details">
+                        <p>From: Jennifer Adams</p>
+                        <p>To: Robert Wilson</p>
+                        <p>Date: May 10, 2023</p>
+                        <p>Status: Pending</p>
+                    </div>
+                </div>
+                
+                <div class="transaction-item">
+                    <div class="transaction-info">
+                        <p>Transaction ID: 234567890</p>
+                        <p>Amount: $85.00</p>
+                    </div>
+                    <div class="transaction-details">
+                        <p>From: David Thompson</p>
+                        <p>To: Laura Davis</p>
+                        <p>Date: May 8, 2023</p>
+                        <p>Status: Completed</p>
+                    </div>
+                </div>
+                
+                
+            </div>
+            
+
+            <!-- Add more transaction items dynamically or fetch from server-side -->
+        </div>
+    </div>
+</body>
+</html>

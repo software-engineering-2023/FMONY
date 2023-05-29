@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard - Technical Issues</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .container {
+            margin-top: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .issue-list {
+            margin-top: 20px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .issue-list th,
+        .issue-list td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        .issue-list th {
+            background-color: #f2f2f2;
+        }
+
+        .issue-list tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .issue-list tr:hover {
+            background-color: #e5e5e5;
+        }
+
+        .button-container {
+            margin-top: 20px;
+            text-align: right;
+        }
+
+        .button-container button {
+            padding: 10px 20px;
+            font-size: 14px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Admin Dashboard - Technical Issues</h1>
+    <div class="container">
+        <table class="issue-list">
+            <thead>
+                <tr>
+                    <th>Issue ID</th>
+                    <th>Summary</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Connection error</td>
+                    <td>Pending</td>
+                    <td>
+                        <button onclick="handleIssue(1, this)">Send Message</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Database corruption</td>
+                    <td>In Progress</td>
+                    <td>
+                        <button onclick="handleIssue(2, this)">Send Message</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Server crash</td>
+                    <td>Pending</td>
+                    <td>
+                        <button onclick="handleIssue(3, this)">Send Message</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>UI glitch</td>
+                    <td>Pending</td>
+                    <td>
+                        <button onclick="handleIssue(4, this)">Send Message</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Performance degradation</td>
+                    <td>In Progress</td>
+                    <td>
+                        <button onclick="handleIssue(5, this)">Send Message</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Security vulnerability</td>
+                    <td>Pending</td>
+                    <td>
+                        <button onclick="handleIssue(6, this)">Send Message</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function handleIssue(issueId, button) {
+            // Logic to handle the issue
+            alert("Issue " + issueId + " resolved successfully");
+
+            // Remove the row containing the button
+            var row = button.parentNode.parentNode;
+            row.parentNode.removeChild(row);
+        }
+
+        function createIssue() {
+            // Logic to create a new issue
+            console.log("Create New Issue");
+        }
+    </script>
+</body>
+</html>
