@@ -1,0 +1,129 @@
+﻿/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+}
+
+/* Header styles */
+.header-area {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+    max-width: 150px;
+    height: auto;
+}
+
+/* Main menu styles */
+.main-menu {
+    background-color: #f5f5f5;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+    .main-menu nav ul {
+        list-style: none;
+    }
+
+        .main-menu nav ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+            .main-menu nav ul li a {
+                text-decoration: none;
+                color: #333;
+                font-size: 16px;
+            }
+
+/* Apply button styles */
+.button-group {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    margin: 10px;
+}
+
+    .button:hover {
+        background-color: #45a049;
+    }
+
+    .button:active {
+        background-color: #3e8e41;
+    }
+
+.announcement-box {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+    font-size: 18px;
+    margin: 20px auto;
+    max-width: 500px;
+}
+
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+/* CSS for Bank Account Transaction Template */
+
+.transaction {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.transaction-details {
+    margin-bottom: 10px;
+}
+
+    .transaction-details label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+        color: #555;
+    }
+
+    .transaction-details span {
+        display: block;
+        color: #333;
+    }
+
+    .transaction-details .amount {
+        font-weight: bold;
+        color: #008000;
+    }

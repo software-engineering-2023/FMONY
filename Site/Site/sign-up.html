@@ -1,0 +1,232 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>EIB</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="assets/css/slicknav.css">
+  <link rel="stylesheet" href="assets/css/animate.min.css">
+  <link rel="stylesheet" href="assets/css/magnific-popup.css">
+  <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
+  <link rel="stylesheet" href="assets/css/themify-icons.css">
+  <link rel="stylesheet" href="assets/css/slick.css">
+  <link rel="stylesheet" href="assets/css/nice-select.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    #error-message {
+      color: red;
+      font-size: 12px;
+    }
+  </style>
+  <script
+    nonce="7b9b82e9-8fe7-4c1a-9359-a97f9cc00d8a">(function (w, d) { !function (bg, bh, bi, bj) { bg[bi] = bg[bi] || {}; bg[bi].executed = []; bg.zaraz = { deferred: [], listeners: [] }; bg.zaraz.q = []; bg.zaraz._f = function (bk) { return function () { var bl = Array.prototype.slice.call(arguments); bg.zaraz.q.push({ m: bk, a: bl }) } }; for (const bm of ["track", "set", "debug"]) bg.zaraz[bm] = bg.zaraz._f(bm); bg.zaraz.init = () => { var bn = bh.getElementsByTagName(bj)[0], bo = bh.createElement(bj), bp = bh.getElementsByTagName("title")[0]; bp && (bg[bi].t = bh.getElementsByTagName("title")[0].text); bg[bi].x = Math.random(); bg[bi].w = bg.screen.width; bg[bi].h = bg.screen.height; bg[bi].j = bg.innerHeight; bg[bi].e = bg.innerWidth; bg[bi].l = bg.location.href; bg[bi].r = bh.referrer; bg[bi].k = bg.screen.colorDepth; bg[bi].n = bh.characterSet; bg[bi].o = (new Date).getTimezoneOffset(); if (bg.dataLayer) for (const bt of Object.entries(Object.entries(dataLayer).reduce(((bu, bv) => ({ ...bu[1], ...bv[1] }))))) zaraz.set(bt[0], bt[1], { scope: "page" }); bg[bi].q = []; for (; bg.zaraz.q.length;) { const bw = bg.zaraz.q.shift(); bg[bi].q.push(bw) } bo.defer = !0; for (const bx of [localStorage, sessionStorage]) Object.keys(bx || {}).filter((bz => bz.startsWith("_zaraz_"))).forEach((by => { try { bg[bi]["z_" + by.slice(7)] = JSON.parse(bx.getItem(by)) } catch { bg[bi]["z_" + by.slice(7)] = bx.getItem(by) } })); bo.referrerPolicy = "origin"; bo.src = "https://preview.colorlib.com/cdn-cgi/zaraz/s.js?z=" + btoa(encodeURIComponent(JSON.stringify(bg[bi]))); bn.parentNode.insertBefore(bo, bn) };["complete", "interactive"].includes(bh.readyState) ? zaraz.init() : bg.addEventListener("DOMContentLoaded", zaraz.init) }(w, d, "zarazData", "script"); })(window, document);</script>
+</head>
+
+<body>
+  <header>
+    <div class="header-area">
+      <div class="main-header header-sticky">
+        <div class="container">
+          <div class="menu-wrapper d-flex align-items-center justify-content-between">
+            <div class="left-content d-flex align-items-center">
+              <div class="logo mr-45">
+                <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+              </div>
+
+              <div class="main-menu d-none d-lg-block">
+                <nav>
+                  <ul id="navigation">
+                    <li><a href="index.html">Home</a></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+
+            <div class="buttons">
+              <ul>
+                <li class="button-header">
+                  <a href="login.html" class="btn header-btn2">Log In</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="mobile_menu d-block d-lg-none"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+
+    <div class="register-form-area section-padding">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-xl-6 col-lg-7 col-md-10">
+            <form id="register-form" class="register-form text-center">
+              <div class="register-heading">
+                <span>Sign Up</span>
+                <p>Create your account to get full access</p>
+              </div>
+              <div class="input-box">
+                <div class="single-input-fields">
+                  <label>Full name</label>
+                  <input id="fullname" required type="text" placeholder="Enter full name">
+                </div>
+                <div class="single-input-fields">
+                  <label>Email Address</label>
+                  <input id="email" required type="email" placeholder="Enter email address">
+                </div>
+                <div class="single-input-fields">
+                  <label>Password</label>
+                  <input id="password" required type="password" placeholder="Enter Password">
+                </div>
+                <div class="single-input-fields">
+                  <label>Confirm Password</label>
+                  <input id="confirm-password" required type="password" placeholder="Confirm Password">
+                  <div id="error-message"></div>
+                </div>
+              </div>
+              <div class="register-footer">
+                <p> Already have an account? <a href="login.html"> Login</a> here</p>
+                <button type="submit" class="btn login-btn">Sign Up</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+  <footer>
+    <div class="footer-area footer-padding gray-bg">
+      <div class="footer-wrapper ">
+        <div class="container">
+          <div class="row d-flex justify-content-between">
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+              <div class="single-footer-caption mb-50">
+                <div class="single-footer-caption mb-30">
+
+                  <div class="footer-logo mb-25">
+                    <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                  </div>
+                  <div class="footer-tittle">
+                    <div class="footer-pera">
+                      <p>The automated process starts as soon as your clothes go into the machine.The outcome is
+                        gleaming clothes.</p>
+                    </div>
+                  </div>
+                  <div class="footer-social">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-2 col-lg-2 col-md-4 col-sm-5">
+              <div class="single-footer-caption mb-50">
+                <div class="footer-tittle">
+                  <h4>Useful links</h4>
+                  <ul>
+                    <li><a href="#">Design & creatives</a></li>
+                    <li><a href="#">Telecommunication</a></li>
+                    <li><a href="#">Restaurant</a></li>
+                    <li><a href="#">Programing</a></li>
+                    <li><a href="#">Architecture</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="footer-bottom-area">
+          <div class="container">
+            <div class="footer-border">
+              <div class="row d-flex align-items-center">
+                <div class="col-xl-12 ">
+                  <div class="footer-copy-right text-center">
+                    <p>Copyright &copy;
+                      <script>document.write(new Date().getFullYear());</script> All rights reserved To EIB
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="back-top">
+    <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+  </div>
+
+
+  <script src="assets/js/vendor/modernizr-3.5.0.min.js"></script>
+  <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
+  <script src="assets/js/popper.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+
+  <script src="assets/js/owl.carousel.min.js"></script>
+  <script src="assets/js/slick.min.js"></script>
+  <script src="assets/js/jquery.slicknav.min.js"></script>
+
+  <script src="assets/js/wow.min.js"></script>
+  <script src="assets/js/jquery.magnific-popup.js"></script>
+  <script src="assets/js/jquery.nice-select.min.js"></script>
+
+  <script src="assets/js/jquery.form.js"></script>
+  <script src="assets/js/jquery.validate.min.js"></script>
+
+  <script src="assets/js/plugins.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    document.getElementById('register-form').addEventListener('submit', function (event) {
+      event.preventDefault(); // Prevent form submission
+
+      // Retrieve form values
+      var fullName = document.getElementById('fullname').value;
+      var email = document.getElementById('email').value;
+      var password = document.getElementById('password').value;
+      var confirmPassword = document.getElementById('confirm-password').value;
+
+      // Perform form validation
+      var errorMessage = '';
+      if (password !== confirmPassword) {
+        errorMessage = 'Passwords do not match.';
+      }
+
+      if (errorMessage) {
+        document.getElementById('error-message').textContent = errorMessage;
+        return;
+      }
+
+      // Save registration details in localStorage
+      var registrationDetails = {
+        fullName: fullName,
+        email: email,
+        password: password
+      };
+
+      localStorage.setItem('registrationDetails', JSON.stringify(registrationDetails));
+
+      // Redirect to login page
+      window.location.href = 'login.html';
+    });
+  </script>
+</body>
+
+
+</html>

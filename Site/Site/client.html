@@ -1,0 +1,101 @@
+﻿<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Client Page1</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/client.css">
+
+    <title>EIB</title>
+
+</head>
+
+<body>
+    <header>
+        <div class="header-area">
+            <div class="main-header header-sticky">
+                <div class="container">
+                    <div class="menu-wrapper d-flex align-items-center justify-content-between">
+                        <div class="left-content d-flex align-items-center">
+                            <div class="logo mr-45">
+                                <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="main-menu d-none d-lg-block">
+            <nav>
+                <ul id="navigation">
+                    <li><a href="index.html">Home</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="button-group">
+            <a href="#" class="button" id="bankacc">View bank account transactions</a>
+            <a href="#" class="button" id="cc_trans">View credit card transactions</a>
+            <a href="#" class="button">Apply for a Loan</a>
+            <a href="#" class="button">Apply for a Credit Card</a>
+            <a href="#" class="button">report an issue</a>
+            <a href="#" class="button">set reminder</a>
+            <a href="#" class="button">transfer money</a>
+            <a href="#" class="button">pay</a>
+            <a href="#" class="button">report theft/damage/loss</a>
+        </div>
+        <h1>Points redemption</h1>
+        <p>Points to redeem <span id="points">0</span></p>
+        <button class="button" type="button" id="redeemButton">Redeem</button>
+
+        <div class="announcement-box">
+            <h2>Important Announcement</h2>
+            <p>We are pleased to announce a new service for our valued customers. Stay tuned for more details!</p>
+        </div>
+    </main>
+
+        <footer>
+            <!-- Add your footer content here -->
+        </footer>
+
+        <!-- Include any scripts or JavaScript files here if needed -->
+    <script>
+        var points = 100; //We declared a variable to hold number of points.
+
+        function redeemPoints() { //This method will be called when the user clicks on Redeem point.
+            if (points > 0) {//We checking if points available or not.
+
+                points = 0; //Reseting points to Zero
+                updatePoints(); //Update UI to show 0
+
+                alert("Successfully redeemed your points"); //Success message
+            }
+            else {
+                alert("No points avaiable!"); //Invalid message
+            }
+        }
+
+        document.getElementById("redeemButton").addEventListener("click", redeemPoints); //Event handle to call redeemPoints fucntion
+
+        function updatePoints() { //This function is reponsible for updating the span element with the value in the points variable.
+            document.getElementById("points").textContent = points;
+        }
+
+        updatePoints(); //We call it here to show the initial value of points variable.
+        document.getElementById('bankacc').addEventListener('click', function () {
+            // Redirect to another page
+            window.location.href = "bankacc.html"
+        });
+        document.getElementById("cc_trans").addEventListener('click', function () {
+            // Redirect to another page
+            window.location.href = "cc_trans.html";
+        });
+    </script>
+</body>
+
+</html>
