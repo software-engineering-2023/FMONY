@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project - Login</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body>
+    <header x-data="{ mobileMenuOpen: false }" class="absolute inset-x-0 top-0 z-50 flex h-16 border-b border-gray-900/10">
+        <div class="mx-auto flex w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+
+            <div class="flex flex-1 items-center gap-x-6">
+                <button type="button" class="-m-3 p-3 md:hidden" x-on:click="mobileMenuOpen = true">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="h-5 w-5 text-gray-900" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10zm0 5.25a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75a.75.75 0 01-.75-.75z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+                <img src="img/Screenshot 2023-05-28 190820.png" alt="Logo" class="logo absolute top-0 left-0 m-4 max-w-20 max-h-20">
+            </div>
+            <div>
+                <a href="index.html" class="text-gray-900 hover:underline">Logout</a>
+            </div>
+        </div>
+        <!-- Mobile menu, show/hide based on menu open state. -->
+        <div x-show="mobileMenuOpen" class="lg:hidden" role="dialog" aria-modal="true">
+
+            <!-- Background backdrop, show/hide based on slide-over state. -->
+            <div class="fixed inset-y-0 left-0 z-50 w-full overflow-y-auto bg-white px-4 pb-6 sm:max-w-sm sm:px-6 sm:ring-1 sm:ring-gray-900/10">
+                <div class="-ml-0.5 flex h-16 items-center gap-x-6">
+                    <button type="button" class="-m-2.5 p-2.5 text-gray-700" x-on:click="mobileMenuOpen = true">
+                        <span class="sr-only">Close menu</span>
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                             aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container mx-auto py-8">
+        <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+
+
+            <div class="flex flex-col items-center">
+                <div class="bg-gray-200 rounded px-4 py-2 mx-2 mb-2">
+                    <button onclick="viewRequestedLoans()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        View Requested Loans
+                    </button>
+                </div>
+                <div class="bg-gray-200 rounded px-4 py-2 mx-2 mb-2">
+                    <button onclick="viewRequestedCreditCards()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        View Credit Card Requests
+                    </button>
+                </div>
+                <div class="bg-gray-200 rounded px-4 py-2 mx-2 mb-2">
+                    <button onclick="viewComplaints()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        View Complaints
+                    </button>
+                </div>
+                <div class="bg-gray-200 rounded px-4 py-2 mx-2 mb-2">
+                    <a href="manageaccounts.html" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        Manage Accounts
+                    </a>
+                </div>
+                <div class="bg-gray-200 rounded px-4 py-2 mx-2 mb-2">
+                    <a href="charity.html" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        Charity Management
+                    </a>
+                </div>
+                <div class="bg-gray-200 rounded px-4 py-2 mx-2 mb-2">
+                    <button onclick="viewBankAccountRequests()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        View Bank Account Requests
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        function viewRequestedLoans() {
+            window.location.href = "requested_loans.html";
+        }
+
+        function viewRequestedCreditCards() {
+            window.location.href = "requested_credit_cards.html";
+        }
+
+        function viewComplaints() {
+            window.location.href = "complaints.html";
+        }
+        function viewBankAccountRequests() {
+            window.location.href = "bankaccountreq.html";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project - Login</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        .center-login {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <header x-data="{ mobileMenuOpen: false }" class="absolute inset-x-0 top-0 z-50 flex h-16 border-b border-gray-900/10">
+        <div class="mx-auto flex w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-1 items-center gap-x-6">
+                <button type="button" class="-m-3 p-3 md:hidden" x-on:click="mobileMenuOpen = true">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="h-5 w-5 text-gray-900" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10zm0 5.25a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75a.75.75 0 01-.75-.75z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+                <img src="img/Screenshot 2023-05-28 190820.png" alt="Logo" class="logo absolute top-0 left-0 m-4 max-w-20 max-h-20">
+            </div>
+            <nav class="center-login">
+                <a id="homepage-link" class="text-blue-500 hover:text-blue-700" href="banker.html">HomePage</a>
+            </nav>
+            <div class="center-login">
+                <a href="index.html" class="text-gray-900 hover:underline">Logout</a>
+            </div>
+        </div>
+    </header>
+        <div class="container mx-auto py-8">
+            <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                <div class="mb-4">
+                    <h1 class="text-2xl font-bold">Loan Details</h1>
+                </div>
+                <form id="loanDetailsForm" class="py-2">
+                    <div class="mb-4">
+                        <label class="block font-bold mb-2" for="loanType">Loan Type:</label>
+                        <input class="block w-full px-4 py-2 border rounded" id="loanType" type="text" name="loanType"
+                               value="Personal Loan" readonly>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block font-bold mb-2" for="fullName">Full Name:</label>
+                        <input class="block w-full px-4 py-2 border rounded" id="fullName" type="text" name="fullName"
+                               value="Farah Ahmad" readonly>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block font-bold mb-2" for="dob">Date of Birth:</label>
+                        <input class="block w-full px-4 py-2 border rounded" id="dob" type="text" name="dob"
+                               value="15/11/2001" readonly>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block font-bold mb-2" for="ssn">Social Security Number:</label>
+                        <input class="block w-full px-4 py-2 border rounded" id="ssn" type="text" name="ssn"
+                               value="12352425" readonly>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block font-bold mb-2" for="address">Address:</label>
+                        <textarea class="block w-full px-4 py-2 border rounded" id="address" name="address" rows="4"
+                                  readonly>rehab 1 , building 5 , apartment 8</textarea>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block font-bold mb-2" for="phoneNumber">Phone Number:</label>
+                        <input class="block w-full px-4 py-2 border rounded" id="phoneNumber" type="text" name="phoneNumber"
+                               value="01827272282" readonly>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block font-bold mb-2" for="amount">Amount:</label>
+                        <input class="block w-full px-4 py-2 border rounded" id="amount" type="text" name="amount"
+                               value="34,000" readonly>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+
+</html>
