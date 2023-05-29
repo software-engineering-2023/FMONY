@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Loan Application Form</title>
+    <style>
+        body {
+            background-image: url("https://img.freepik.com/free-vector/bank-finance-infographic-template_23-2149732179.jpg?t=st=1685286457~exp=1685287057~hmac=e2d4b4a0ce732167722e953e809ca07877337568267d82a7ca36802004a0a7f5");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 2rem;
+            width: 70%;
+            max-width: 600px;
+            border-radius: 5px;
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body>
+    <header class="py-4">
+        <nav>
+            <ul class="flex items-center">
+                <li class="mr-4">
+                    <a id="homepage-link" class="text-blue-500 hover:text-blue-700" href="client.html">HomePage</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container mx-auto py-8" x-data="loanForm()" x-init="init">
+        <div class="w-1/3 bg-white p-6 rounded-lg shadow">
+            <img src="img/Screenshot 2023-05-28 190820.png" alt="Logo" class="logo absolute top-0 left-0 m-4 max-w-20 max-h-20">
+            <form>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Full Name</label>
+                    <input class="form-input rounded-md shadow-sm w-full" id="name" type="text" placeholder="Enter your full name">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email</label>
+                    <input class="form-input rounded-md shadow-sm w-full" id="email" type="email" placeholder="Enter your email address">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="phone">Phone Number</label>
+                    <input class="form-input rounded-md shadow-sm w-full" id="phone" type="tel" placeholder="Enter your phone number">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="address">Address</label>
+                    <input class="form-input rounded-md shadow-sm w-full" id="address" type="text" placeholder="Enter your address">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="dob">Date of Birth</label>
+                    <input class="form-input rounded-md shadow-sm w-full" id="dob" type="date">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="ssn">Social Security Number</label>
+                    <input class="form-input rounded-md shadow-sm w-full" id="ssn" type="text" placeholder="Enter your SSN">
+                </div>
+                <div class="mb-6">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="income">Annual Income</label>
+                    <input class="form-input rounded-md shadow-sm w-full" id="income" type="number" placeholder="Enter your annual income">
+                </div>
+                <div class="flex items-center justify-between">
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" id="submit" type="submit">Submit</button>
+                    <button class="bg-gray-400 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="reset">Reset</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+       
+        document.getElementById("submit").addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent form submission
+            // Check if any required fields are empty
+            var fullName = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var phoneNumber = document.getElementById("phone").value;
+            var address = document.getElementById("address").value;
+            var dob = document.getElementById("dob").value;
+            var loanAmount = document.getElementById("ssn").value;
+            var loanAmount = document.getElementById("income").value;
+
+            if (fullName === "" || email === "" || phoneNumber === "" || address === "" || dob === "" || loanAmount === "") {
+                alert('Please fill in the whole form.');
+            } else {
+                alert('Your request is submitted successfully.');
+                window.location.href = "client.html";
+
+            }
+        });
+    </script>
+</body>
+</html>

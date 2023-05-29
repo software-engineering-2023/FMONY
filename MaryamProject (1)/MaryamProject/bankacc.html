@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Loan Application Form</title>
+    <style>
+        body {
+            background-image: url("https://img.freepik.com/free-vector/bank-finance-infographic-template_23-2149732179.jpg?t=st=1685286457~exp=1685287057~hmac=e2d4b4a0ce732167722e953e809ca07877337568267d82a7ca36802004a0a7f5");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 2rem;
+            width: 70%;
+            max-width: 600px;
+            border-radius: 5px;
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body>
+    <header class="py-4">
+        <nav>
+            <ul class="flex items-center">
+                <li class="mr-4">
+                    <a class="text-blue-500 hover:text-blue-700" id="homepage-link" href="new client.html">HomePage</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container mx-auto py-8" x-data="loanForm()" x-init="init">
+        <img src="img/Screenshot 2023-05-28 190820.png" alt="Logo" class="logo absolute top-0 left-0 m-4 max-w-20 max-h-20">
+        <div class="max-w-md w-full py-10 px-6 bg-white rounded-lg shadow-md">
+            <h2 class="text-center text-2xl font-bold mb-6">Account Management</h2>
+            <form>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="account-option">Account Option</label>
+                    <select class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="account-option">
+                        <option value="close-current">Close Current Account</option>
+                        <option value="close-another">Close Another Account</option>
+                        <option value="open-new">Open New Account</option>
+                    </select>
+                </div>
+                <div class="mb-4 hidden" id="close-current">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Close Current Account</label>
+                    <p class="text-gray-600">Are you sure you want to close your current account?</p>
+                </div>
+                <div class="mb-4 hidden" id="close-another">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="close-account-type">Close Another Account</label>
+                    <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="close-account-name" type="text" placeholder="Account Name">
+                    <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="close-account-type" type="text" placeholder="Account Type">
+                    <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="close-account-number" type="text" placeholder="Account Number">
+                </div>
+
+                <div class="mb-4 hidden" id="open-new">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="new-account-form">Open New Account Form</label>
+                    <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="full-name" type="text" placeholder="Full Name">
+                    <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="Email">
+                    <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="date-of-birth" type="date" placeholder="Date of Birth">
+                    <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="address" type="text" placeholder="Address">
+                    <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="contact-number" type="tel" placeholder="Contact Number">
+                    <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="ssn" type="text" placeholder="SSN">
+                    <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="identification-document" type="text" placeholder="Identification Document">
+                    <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="initial-deposit" type="text" placeholder="Initial Deposit">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="account-type">Account Type</label>
+                    <select class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="account-type">
+                        <option value="savings">Savings Account</option>
+                        <option value="checking">Checking Account</option>
+                        <option value="credit">Credit Card</option>
+                    </select>
+                </div>
+                <div class="flex items-center justify-between">
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" id="submit" type="submit">Submit</button>
+                    <button class="bg-gray-400 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="reset">Reset</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        var accountOption = document.getElementById("account-option");
+        var closeCurrent = document.getElementById("close-current");
+        var closeAnother = document.getElementById("close-another");
+        var openNew = document.getElementById("open-new");
+        var selectedOption; // Declare the variable outside the event listener scope
+
+        accountOption.addEventListener("change", function () {
+            closeCurrent.classList.add("hidden");
+            closeAnother.classList.add("hidden");
+            openNew.classList.add("hidden");
+
+            selectedOption = accountOption.value; // Assign the value to the variable
+
+            if (selectedOption === "close-current") {
+                closeCurrent.classList.remove("hidden");
+            } else if (selectedOption === "close-another") {
+                closeAnother.classList.remove("hidden");
+            } else if (selectedOption === "open-new") {
+                openNew.classList.remove("hidden");
+            }
+        });
+        document.getElementById("submit").addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent form submission
+
+            if (selectedOption === "close-current") {
+                var confirmClose = confirm('Are you sure you want to close your current account?');
+                if (confirmClose) {
+                    alert('Your current account has been closed successfully.');
+                    window.location.href = 'new%20client.html'; // Redirect to another page
+                }
+            } else if (selectedOption === "close-another") {
+                var accountType = document.getElementById("close-account-type").value;
+                var accountNumber = document.getElementById("close-account-number").value;
+                var accountName = document.getElementById("close-account-name").value;
+
+                if (accountType === "" || accountNumber === "" || accountName === "") {
+                    alert('Please fill in all the fields to close another account.');
+                } else {
+                    // Additional logic to process the closure of the specified account can be added here
+                    alert('The account closure request for ' + accountType + ' account with account number ' + accountNumber + ' has been processed successfully.');
+                    window.location.href = 'bankacc.html'; // Redirect to another page
+                }
+            } else if (selectedOption === "open-new") {
+                var fullName = document.getElementById("full-name").value;
+                var email = document.getElementById("email").value;
+                var dateOfBirth = document.getElementById("date-of-birth").value;
+                var address = document.getElementById("address").value;
+                var contactNumber = document.getElementById("contact-number").value;
+                var ssn = document.getElementById("ssn").value;
+                var identificationDocument = document.getElementById("identification-document").value;
+                var initialDeposit = document.getElementById("initial-deposit").value;
+                var accountType = document.getElementById("account-type").value;
+
+                if (
+                    fullName === "" ||
+                    email === "" ||
+                    dateOfBirth === "" ||
+                    address === "" ||
+                    contactNumber === "" ||
+                    ssn === "" ||
+                    identificationDocument === "" ||
+                    initialDeposit === "" ||
+                    accountType === ""
+                ) {
+                    alert('Please fill in all the fields to open a new account.');
+                } else {
+                    // Additional logic to process the new account opening can be added here
+                    alert(
+                        'Your request to open a new ' +
+                        accountType +
+                        ' account (' +
+                        fullName +
+                        ') with an initial deposit of ' +
+                        initialDeposit +
+                        ' has been processed successfully.'
+                    );
+                    window.location.href = 'new%20client.html'; // Redirect to another page
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>

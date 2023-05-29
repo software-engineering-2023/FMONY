@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Notifications</title>
+    <style>
+        body {
+            background-image: url("https://img.freepik.com/free-vector/bank-finance-infographic-template_23-2149732179.jpg?t=st=1685286457~exp=1685287057~hmac=e2d4b4a0ce732167722e953e809ca07877337568267d82a7ca36802004a0a7f5");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 2rem;
+            width: 70%;
+            max-width: 600px;
+            border-radius: 5px;
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body>
+    <header class="py-4">
+        <nav>
+            <ul class="flex items-center">
+                <li class="mr-4">
+                    <a class="text-blue-500 hover:text-blue-700" href="client.html">HomePage</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1 class="text-2xl font-semibold mb-4">Notifications</h1>
+        <div id="notification-container"></div>
+    </div>
+
+    <script>
+        function showFakeNotifications() {
+            const notifications = [
+                {
+                    from: "Banker",
+                    message: "Your credit card application has been approved. Congratulations!"
+                },
+                {
+                    from: "Banker",
+                    message: "We regret to inform you that your loan application has been denied."
+                },
+                {
+                    from: "Banker",
+                    message: "Your bank account has been successfully opened. Welcome!"
+                },
+                {
+                    from: "Banker",
+                    message: "We apologize for the inconvenience, but your credit card application is still under review."
+                },
+
+                 {
+                    from: "Admin",
+                    message: "We apologize for the inconvenience, but your technical issue should now be solved."
+                }
+                // Add more notifications as needed
+            ];
+
+            const notificationContainer = document.getElementById("notification-container");
+
+            notifications.forEach((notification) => {
+                const notificationElement = document.createElement("div");
+                notificationElement.className = "notification bg-white rounded-lg p-4 mb-4 shadow-md";
+                notificationElement.innerHTML = `
+                        <h3 class="text-lg font-semibold mb-2">${notification.from}</h3>
+                        <p>${notification.message}</p>
+                    `;
+
+                notificationContainer.appendChild(notificationElement);
+            });
+        }
+
+        window.onload = showFakeNotifications;
+    </script>
+</body>
+</html>

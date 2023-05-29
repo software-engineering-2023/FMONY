@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Loan Application Form</title>
+    <style>
+        body {
+            background-image: url("https://img.freepik.com/free-vector/bank-finance-infographic-template_23-2149732179.jpg?t=st=1685286457~exp=1685287057~hmac=e2d4b4a0ce732167722e953e809ca07877337568267d82a7ca36802004a0a7f5");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 2rem;
+            width: 70%;
+            max-width: 600px;
+            border-radius: 5px;
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body>
+    <header class="py-4">
+        <nav>
+            <ul class="flex items-center">
+                <li class="mr-4">
+                    <a class="text-blue-500 hover:text-blue-700" id="homepage-link" href="client.html">HomePage</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+        <div class="container mx-auto" x-data="transferForm()" x-init="init()">
+            <img src="img/Screenshot 2023-05-28 190820.png" alt="Logo" class="logo absolute top-0 left-0 m-4 max-w-20 max-h-20">
+            <h1 class="text-2xl font-bold mb-4">Transfer Money</h1>
+            <div class="mb-4">
+                <label for="transfer-type">Transfer Type:</label>
+                <select id="transfer-type" name="transfer-type" class="border border-gray-300 rounded px-2 py-1" x-model="selectedTransferType">
+                    <option value="" disabled selected>Select Transfer Type</option>
+                    <option value="domestic">Domestic Transfer</option>
+                    <option value="internal">Internal Transfer</option>
+                    <option value="international">International Transfer</option>
+                </select>
+            </div>
+
+            <template x-if="selectedTransferType === 'domestic'">
+                <!-- Domestic Transfer Form -->
+                <div>
+                    <div class="mb-4">
+                        <label for="sender-account">Sender's Account Number:</label>
+                        <input type="text" id="sender-account" name="sender-account" class="border border-gray-300 rounded px-2 py-1">
+                    </div>
+                    <div class="mb-4">
+                        <label for="recipient-account">Recipient's Account Number:</label>
+                        <input type="text" id="recipient-account" name="recipient-account" class="border border-gray-300 rounded px-2 py-1">
+                    </div>
+                    <div class="mb-4">
+                        <label for="recipient-name">Recipient's Name:</label>
+                        <input type="text" id="recipient-name" name="recipient-name" class="border border-gray-300 rounded px-2 py-1">
+                    </div>
+                    <div class="mb-4">
+                        <label for="recipient-address">Recipient's Address:</label>
+                        <input type="text" id="recipient-address" name="recipient-address" class="border border-gray-300 rounded px-2 py-1">
+                    </div>
+                    <div class="mb-4">
+                        <label for="recipient-bank">Recipient's Bank:</label>
+                        <input type="text" id="recipient-bank" name="recipient-bank" class="border border-gray-300 rounded px-2 py-1">
+                    </div>
+                    <div class="mb-4">
+                        <label for="recipient-bank-location">Recipient's Bank Location:</label>
+                        <input type="text" id="recipient-bank-location" name="recipient-bank-location" class="border border-gray-300 rounded px-2 py-1">
+                    </div>
+                    <div class="mb-4">
+                        <label for="transfer-amount">Transfer Amount:</label>
+                        <input type="text" id="transfer-amount" name="transfer-amount" class="border border-gray-300 rounded px-2 py-1">
+                    </div>
+                    <div class="mb-4">
+                        <label for="transfer-purpose">Transfer Purpose:</label>
+                        <input type="text" id="transfer-purpose" name="transfer-purpose" class="border border-gray-300 rounded px-2 py-1">
+                    </div>
+                </div>
+            </template>
+
+            <template x-if="selectedTransferType === 'internal'">
+                <!-- Internal Transfer Form -->
+                <div>
+                    <div class="mb-4">
+                        <label for="sender-account">Sender's Account Number:</label>
+                        <input type="text" id="sender-account" name="sender-account" class="border border-gray-300 rounded px-2 py-1">
+                    </div>
+                    <div class="mb-4">
+                        <label for="recipient-account">Recipient's Account Number:</label>
+                        <input type="text" id="recipient-account" name="recipient-account" class="border border-gray-300 rounded px-2 py-1">
+                    </div>
+                    <div class="mb-4">
+                        <label for="transfer-amount">Transfer Amount:</label>
+                        <input type="text" id="transfer-amount" name="transfer-amount" class="border border-gray-300 rounded px-2 py-1">
+                    </div>
+                    <div class="mb-4">
+                        <label for="transfer-purpose">Transfer Purpose:</label>
+                        <input type="text" id="transfer-purpose" name="transfer-purpose" class="border border-gray-300 rounded px-2 py-1">
+                    </div>
+                </div>
+            </template>
+
+            <template x-if="selectedTransferType === 'international'">
+                <!-- International Transfer Form -->
+                <div>
+                    <div class="mb-4">
+                        <label for="sender-account">Sender's Account Number:</label>
+                        <input type="text" id="sender-account" name="sender-account" class="border border-gray-300 rounded px-2 py-1">
+                    </div>
+                    <div class="mb-4">
+                        <label for="recipient-account">Recipient's Account Number:</label>
+                        <input type="text" id="recipient-account" name="recipient-account" class="border border-gray-300 rounded px-2 py-1">
+                    </div>
+                    <div class="mb-4">
+                        <label for="recipient-bank">Recipient's Bank:</label>
+                        <input type="text" id="recipient-bank" name="recipient-bank" class="border border-gray-300 rounded px-2 py-1">
+                    </div>
+                    <div class="mb-4">
+                        <label for="recipient-bank-address">Recipient's Bank Address:</label>
+                        <input type="text" id="recipient-bank-address" name="recipient-bank-address" class="border border-gray-300 rounded px-2 py-1">
+                    </div>
+                    <div class="mb-4">
+                        <label for="recipient-bank-swift">Recipient's Bank SWIFT Code:</label>
+                        <input type="text" id="recipient-bank-swift" name="recipient-bank-swift" class="border border-gray-300 rounded px-2 py-1">
+                    </div>
+                    <div class="mb-4">
+                        <label for="transfer-amount">Transfer Amount:</label>
+                        <input type="text" id="transfer-amount" name="transfer-amount" class="border border-gray-300 rounded px-2 py-1">
+                    </div>
+                    <div class="mb-4">
+                        <label for="transfer-purpose">Transfer Purpose:</label>
+                        <input type="text" id="transfer-purpose" name="transfer-purpose" class="border border-gray-300 rounded px-2 py-1">
+                    </div>
+                </div>
+            </template>
+
+            <button id="submit-payment" class="bg-blue-500 text-white py-2 px-4 rounded mt-4" x-show="selectedTransferType" x-on:click="submitTransferForm()">Submit Payment</button>
+
+            <p class="text-red-500 mt-4" x-show="showError">Please fill in all required fields.</p>
+
+            <script>
+                
+                function transferForm() {
+                    return {
+                        selectedTransferType: "",
+                        showError: false,
+
+                        init() {
+                            this.selectedTransferType = document.getElementById('transfer-type').value;
+                        },
+
+                        submitTransferForm() {
+                            const transferType = this.selectedTransferType;
+
+                            let senderAccount, recipientAccount, recipientName, recipientAddress, recipientBank, recipientBankLocation, recipientBankAddress, recipientBankSwift, transferAmount, transferPurpose;
+
+                            if (transferType === 'domestic') {
+                                senderAccount = document.getElementById('sender-account').value;
+                                recipientAccount = document.getElementById('recipient-account').value;
+                                recipientName = document.getElementById('recipient-name').value;
+                                recipientAddress = document.getElementById('recipient-address').value;
+                                recipientBank = document.getElementById('recipient-bank').value;
+                                recipientBankLocation = document.getElementById('recipient-bank-location').value;
+                                transferAmount = document.getElementById('transfer-amount').value;
+                                transferPurpose = document.getElementById('transfer-purpose').value;
+                            } else if (transferType === 'internal') {
+                                senderAccount = document.getElementById('sender-account').value;
+                                recipientAccount = document.getElementById('recipient-account').value;
+                                transferAmount = document.getElementById('transfer-amount').value;
+                                transferPurpose = document.getElementById('transfer-purpose').value;
+                            } else if (transferType === 'international') {
+                                senderAccount = document.getElementById('sender-account').value;
+                                recipientAccount = document.getElementById('recipient-account').value;
+                                recipientBank = document.getElementById('recipient-bank').value;
+                                recipientBankAddress = document.getElementById('recipient-bank-address').value;
+                                recipientBankSwift = document.getElementById('recipient-bank-swift').value;
+                                transferAmount = document.getElementById('transfer-amount').value;
+                                transferPurpose = document.getElementById('transfer-purpose').value;
+                            }
+
+                            let valid = true;
+
+                            if (transferType === 'domestic') {
+                                if (!senderAccount || !recipientAccount || !recipientName || !recipientAddress || !recipientBank || !recipientBankLocation || !transferAmount) {
+                                    valid = false;
+                                }
+                            } else if (transferType === 'internal') {
+                                if (!senderAccount || !recipientAccount || !transferAmount) {
+                                    valid = false;
+                                }
+                            } else if (transferType === 'international') {
+                                if (!senderAccount || !recipientAccount || !recipientBank || !recipientBankAddress || !recipientBankSwift || !transferAmount) {
+                                    valid = false;
+                                }
+                            }
+
+                            if (valid) {
+                                this.showError = false;
+                                alert('Transfer successful!');
+                                window.location.href = 'transfermoney.html';
+                            } else {
+                                this.showError = true;
+                            }
+                        }
+                    };
+                }
+            </script>
+        </div>
+</body>
+</html>

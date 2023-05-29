@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project - Login</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        .center-login {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <header x-data="{ mobileMenuOpen: false }" class="absolute inset-x-0 top-0 z-50 flex h-16 border-b border-gray-900/10">
+        <div class="mx-auto flex w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-1 items-center gap-x-6">
+                <button type="button" class="-m-3 p-3 md:hidden" x-on:click="mobileMenuOpen = true">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="h-5 w-5 text-gray-900" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10zm0 5.25a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75a.75.75 0 01-.75-.75z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+                <img src="img/Screenshot 2023-05-28 190820.png" alt="Logo" class="logo absolute top-0 left-0 m-4 max-w-20 max-h-20">
+            </div>
+            <nav class="center-login">
+                <a id="homepage-link" class="text-blue-500 hover:text-blue-700" href="banker.html">HomePage</a>
+            </nav>
+            <div class="center-login">
+                <a href="index.html" class="text-gray-900 hover:underline">Logout</a>
+            </div>
+        </div>
+    </header>
+    <div class="container mx-auto py-8">
+        <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <div class="mb-4">
+                <h1 class="text-2xl font-bold">Request Details</h1>
+            </div>
+            <form>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="fullName">Full Name:</label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="fullName" type="text" placeholder="Full Name" readonly>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email:</label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="Email" readonly>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="phone">Phone Number:</label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="phone" type="tel" placeholder="Phone Number" readonly>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="address">Address:</label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="address" type="text" placeholder="Address" readonly>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="dob">Date of Birth:</label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="dob" type="date" readonly>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="ssn">Social Security Number:</label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="ssn" type="text" placeholder="Social Security Number" readonly>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="income">Annual Income:</label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="income" type="text" placeholder="Annual Income" readonly>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+            function generateRandomData() {
+                const names = ["John Doe", "Farah Ahmed", "David Smith", "Emma Brown", "Michael Johnson", "Olivia Davis", "James Wilson", "Sophia Taylor", "Daniel Anderson", "Isabella Martinez"];
+                const emails = ["john@example.com", "FarahAhmed@gmail.com", "david@example.com", "emma@example.com", "michael@example.com", "olivia@example.com", "james@example.com", "sophia@example.com", "daniel@example.com", "isabella@example.com"];
+                const phoneNumbers = ["555-1234", "555-5678", "555-9012", "555-3456", "555-7890", "555-2345", "555-6789", "555-0123", "555-4567", "555-8901"];
+                const addresses = ["123 Main St", "456 Elm St", "789 Oak Ave", "321 Pine St", "654 Maple Dr", "987 Cedar Ln", "234 Birch Ave", "567 Walnut St", "890 Chestnut Dr", "1234 Spruce Ave"];
+                const ssnNumbers = ["123-45-6789", "987-65-4321", "246-80-1357", "864-20-9753", "753-19-8642", "531-57-2468", "987-65-4321", "543-21-8769", "321-09-8754", "679-54-3210"];
+                const incomes = ["$50,000", "$75,000", "$100,000", "$125,000", "$150,000", "$175,000", "$200,000", "$225,000", "$250,000", "$275,000"];
+
+                const randomIndex = 1
+
+                return {
+                    fullName: names[randomIndex],
+                    email: emails[randomIndex],
+                    phoneNumber: phoneNumbers[randomIndex],
+                    address: addresses[randomIndex],
+                    dateOfBirth: getRandomDateOfBirth(),
+                    ssn: ssnNumbers[randomIndex],
+                    annualIncome: incomes[randomIndex]
+                };
+            }
+
+            function getRandomDateOfBirth() {
+                const start = new Date(1950, 0, 1);
+                const end = new Date(2000, 11, 31);
+                const randomDate = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+
+                const year = 1999;
+                const month = 12;
+                const day = 11;
+
+                return `${year}-${month}-${day}`;
+            }
+
+            function populateFormFields() {
+                const fullNameField = document.getElementById("fullName");
+                const emailField = document.getElementById("email");
+                const phoneField = document.getElementById("phone");
+                const addressField = document.getElementById("address");
+                const dobField = document.getElementById("dob");
+                const ssnField = document.getElementById("ssn");
+                const incomeField = document.getElementById("income");
+
+                const requestData = generateRandomData();
+
+                fullNameField.value = requestData.fullName;
+                emailField.value = requestData.email;
+                phoneField.value = requestData.phoneNumber;
+                addressField.value = requestData.address;
+                dobField.value = requestData.dateOfBirth;
+                ssnField.value = requestData.ssn;
+                incomeField.value = requestData.annualIncome;
+            }
+
+            window.addEventListener("DOMContentLoaded", populateFormFields);
+    </script>
+</body>

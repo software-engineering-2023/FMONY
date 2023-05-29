@@ -1,0 +1,251 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Loan Application Form</title>
+    <style>
+        body {
+            background-image: url("https://img.freepik.com/free-vector/bank-finance-infographic-template_23-2149732179.jpg?t=st=1685286457~exp=1685287057~hmac=e2d4b4a0ce732167722e953e809ca07877337568267d82a7ca36802004a0a7f5");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 2rem;
+            width: 70%;
+            max-width: 600px;
+            border-radius: 5px;
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body>
+    <header class="py-4">
+        <nav>
+            <ul class="flex items-center">
+                <li class="mr-4">
+                    <a class="text-blue-500 hover:text-blue-700" id="homepage-link" href="client.html">HomePage</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container mx-auto py-8" x-data="loanForm()" x-init="init">
+        <img src="img/Screenshot 2023-05-28 190820.png" alt="Logo" class="logo absolute top-0 left-0 m-4 max-w-20 max-h-20">
+        <h1 class="text-2xl font-bold mb-4">Loan Application Form</h1>
+
+        <div class="mb-4">
+            <label for="loan-type">Loan Type:</label>
+            <select id="loan-type" name="loan-type" class="border border-gray-300 rounded px-2 py-1" x-model="selectedLoanType">
+                <option value="" selected disabled>Select Loan Type</option>
+                <option value="personal">Personal Loan</option>
+                <option value="car">Car Loan</option>
+            </select>
+        </div>
+
+        <template x-if="selectedLoanType === 'personal'">
+            <div>
+                <div class="mb-4">
+                    <label for="full-name">Full Name:</label>
+                    <input type="text" id="full-name" name="full-name" class="border border-gray-300 rounded px-2 py-1" x-model="personal.fullName">
+                </div>
+                <div class="mb-4">
+                    <label for="date-of-birth">Date of Birth:</label>
+                    <input type="text" id="date-of-birth" name="date-of-birth" class="border border-gray-300 rounded px-2 py-1" x-model="personal.dateOfBirth">
+                </div>
+                <div class="mb-4">
+                    <label for="ssn">Social Security Number:</label>
+                    <input type="text" id="ssn" name="ssn" class="border border-gray-300 rounded px-2 py-1" x-model="personal.ssn">
+                </div>
+                <div class="mb-4">
+                    <label for="address">Address:</label>
+                    <input type="text" id="address" name="address" class="border border-gray-300 rounded px-2 py-1" x-model="personal.address">
+                </div>
+                <div class="mb-4">
+                    <label for="phone-number">Phone Number:</label>
+                    <input type="text" id="phone-number" name="phone-number" class="border border-gray-300 rounded px-2 py-1" x-model="personal.phoneNumber">
+                </div>
+                <div class="mb-4">
+                    <label for="phone-number">Amount:</label>
+                    <input type="text" id="Amount" name="Amount" class="border border-gray-300 rounded px-2 py-1" x-model="personal.Amount">
+                </div>
+            </div>
+        </template>
+
+        <template x-if="selectedLoanType === 'car'">
+            <div>
+                <div class="mb-4">
+                    <label for="employer">Employer:</label>
+                    <input type="text" id="employer" name="employer" class="border border-gray-300 rounded px-2 py-1" x-model="car.employer">
+                </div>
+                <div class="mb-4">
+                    <label for="job-title">Job Title:</label>
+                    <input type="text" id="job-title" name="job-title" class="border border-gray-300 rounded px-2 py-1" x-model="car.jobTitle">
+                </div>
+                <div class="mb-4">
+                    <label for="employment-length">Length of Employment:</label>
+                    <input type="text" id="employment-length" name="employment-length" class="border border-gray-300 rounded px-2 py-1" x-model="car.employmentLength">
+                </div>
+                <div class="mb-4">
+                    <label for="income-details">Income Details:</label>
+                    <input type="text" id="income-details" name="income-details" class="border border-gray-300 rounded px-2 py-1" x-model="car.incomeDetails">
+                </div>
+                <div class="mb-4">
+                    <label for="assets">Current Assets:</label>
+                    <input type="text" id="assets" name="assets" class="border border-gray-300 rounded px-2 py-1" x-model="car.assets">
+                </div>
+                <div class="mb-4">
+                    <label for="liabilities">Liabilities:</label>
+                    <input type="text" id="liabilities" name="liabilities" class="border border-gray-300 rounded px-2 py-1" x-model="car.liabilities">
+                </div>
+                <div class="mb-4">
+                    <label for="monthly-expenses">Monthly Expenses:</label>
+                    <input type="text" id="monthly-expenses" name="monthly-expenses" class="border border-gray-300 rounded px-2 py-1" x-model="car.monthlyExpenses">
+                </div>
+                <div class="mb-4">
+                    <label for="credit-history">Credit History:</label>
+                    <input type="text" id="credit-history" name="credit-history" class="border border-gray-300 rounded px-2 py-1" x-model="car.creditHistory">
+                </div>
+                <div class="mb-4">
+                    <label for="make">Make:</label>
+                    <input type="text" id="make" name="make" class="border border-gray-300 rounded px-2 py-1" x-model="car.make">
+                </div>
+                <div class="mb-4">
+                    <label for="model">Model:</label>
+                    <input type="text" id="model" name="model" class="border border-gray-300 rounded px-2 py-1" x-model="car.model">
+                </div>
+                <div class="mb-4">
+                    <label for="year">Year:</label>
+                    <input type="text" id="year" name="year" class="border border-gray-300 rounded px-2 py-1" x-model="car.year">
+                </div>
+                <div class="mb-4">
+                    <label for="vin">VIN (Vehicle Identification Number):</label>
+                    <input type="text" id="vin" name="vin" class="border border-gray-300 rounded px-2 py-1" x-model="car.vin">
+                </div>
+                <div class="mb-4">
+                    <label for="purchase-price">Purchase Price:</label>
+                    <input type="text" id="purchase-price" name="purchase-price" class="border border-gray-300 rounded px-2 py-1" x-model="car.purchasePrice">
+                </div>
+                <div class="mb-4">
+                    <label for="loan-amount">Loan Amount Requested:</label>
+                    <input type="text" id="loan-amount" name="loan-amount" class="border border-gray-300 rounded px-2 py-1" x-model="car.loanAmount">
+                </div>
+            </div>
+        </template>
+
+        <div class="mt-4">
+            <button type="button" class="bg-blue-500 text-white px-4 py-2 rounded" x-on:click="submitForm">Submit</button>
+        </div>
+
+        <template x-if="showSuccessMessage">
+            <div class="mt-4 text-green-500">Loan application submitted successfully!</div>
+        </template>
+
+        <template x-if="showErrorMessage">
+            <div class="mt-4 text-red-500">Please fill in all the required fields.</div>
+        </template>
+    </div>
+
+    <script>
+        let clientType;
+        if (window.location.pathname.includes("new%20client.html")) {
+            clientType = "new";
+        } else if (window.location.pathname.includes("client.html")) {
+            clientType = "existing";
+        }
+        document.getElementById("homepage-link").addEventListener('click', function (event) {
+            if (clientType === 'existing')
+                window.location.href = "client.html";
+        });
+
+        function loanForm() {
+            return {
+                selectedLoanType: '',
+                personal: {
+                    fullName: '',
+                    dateOfBirth: '',
+                    ssn: '',
+                    address: '',
+                    phoneNumber: '',
+                    Amount: ''
+                },
+                car: {
+                    employer: '',
+                    jobTitle: '',
+                    employmentLength: '',
+                    incomeDetails: '',
+                    assets: '',
+                    liabilities: '',
+                    monthlyExpenses: '',
+                    creditHistory: '',
+                    make: '',
+                    model: '',
+                    year: '',
+                    vin: '',
+                    purchasePrice: '',
+                    loanAmount: ''
+
+                },
+                showSuccessMessage: false,
+                showErrorMessage: false,
+                init() {
+                    this.showSuccessMessage = false;
+                    this.showErrorMessage = false;
+                },
+                submitForm() {
+                    if (this.validateForm()) {
+                        // Form is valid, submit the data
+                        this.showSuccessMessage = true;
+                        this.showErrorMessage = false;
+                        // Redirect to client.html
+                            window.location.href = "client.html";
+                      
+
+                    } else {
+                        // Form is not valid, show error message
+                        this.showSuccessMessage = false;
+                        this.showErrorMessage = true;
+                    }
+                },
+                validateForm() {
+                    if (this.selectedLoanType === 'personal') {
+                        return (
+                            this.personal.fullName !== '' &&
+                            this.personal.dateOfBirth !== '' &&
+                            this.personal.ssn !== '' &&
+                            this.personal.address !== '' &&
+                            this.personal.phoneNumber !== '' &&
+                            this.personal.Amount !== ''
+                        );
+                    } else if (this.selectedLoanType === 'car') {
+                        return (
+                            this.car.employer !== '' &&
+                            this.car.jobTitle !== '' &&
+                            this.car.employmentLength !== '' &&
+                            this.car.incomeDetails !== '' &&
+                            this.car.assets !== '' &&
+                            this.car.liabilities !== '' &&
+                            this.car.monthlyExpenses !== '' &&
+                            this.car.creditHistory !== '' &&
+                            this.car.make !== '' &&
+                            this.car.model !== '' &&
+                            this.car.year !== '' &&
+                            this.car.vin !== '' &&
+                            this.car.purchasePrice !== '' &&
+                            this.car.loanAmount !== ''
+
+                        );
+                    }
+                    return false;
+                }
+            };
+        }
+    </script>
+</body>
+</html>

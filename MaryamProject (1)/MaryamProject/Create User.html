@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Create User - Bank Admin</title>
+    <style>
+        /* CSS styles for the create user page */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .header {
+            background-color: #333;
+            padding: 10px;
+            color: white;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .form {
+            display: inline-block;
+            text-align: left;
+            background-color: #f2f2f2;
+            border-radius: 4px;
+            padding: 20px;
+        }
+
+            .form input[type="text"],
+            .form input[type="email"],
+            .form select {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 10px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+            }
+
+            .form button {
+                padding: 10px 20px;
+                font-size: 14px;
+                background-color: #333;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+        .logo {
+            max-width: 100px; /* Adjust the maximum width as per your requirement */
+            max-height: 100px; /* Adjust the maximum height as per your requirement */
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        .logo {
+            max-width: 100px; /* Adjust the maximum width as per your requirement */
+            max-height: 100px; /* Adjust the maximum height as per your requirement */
+        }
+    </style>
+</head>
+<body>
+    <header class="py-4">
+        <nav>
+            <ul class="flex items-center">
+                <li class="mr-4">
+
+                    <img src="img/Screenshot 2023-05-28 190820.png"alt="Logo" class="logo absolute top-0 left-0 m-4 max-w-10 max-h-10">
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="relative">
+        <a id="homepage-link" class="text-blue-500 hover:text-blue-700" href="Admin.html" style="position: absolute; top: 0; right: 0; margin: 10px;">HomePage</a>
+    </div>
+
+    <div class="header">
+        Create User - Bank Admin
+    </div>
+
+    <div class="container">
+        <div class="form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter username">
+            <span class="error" id="usernameError"></span>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter email">
+            <span class="error" id="emailError"></span>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter password">
+            <span class="error" id="passwordError"></span>
+
+            <label for="account-type">Account Type:</label>
+            <select id="account-type" name="account-type">
+                <option value="savings">Savings</option>
+                <option value="checking">Checking</option>
+                <option value="credit">Credit</option>
+            </select>
+            <span class="error" id="accountTypeError"></span>
+
+            <button class="button" onclick="createUser()">Create</button>
+        </div>
+    </div>
+
+    <script>
+        function validateForm() {
+            var username = document.getElementById('username').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var accountType = document.getElementById('account-type').value;
+            var isValid = true;
+
+            // Validate username
+            if (username.trim() === '') {
+                document.getElementById('usernameError').textContent = 'Username is required';
+                isValid = false;
+            }
+
+            // Validate email
+            if (email.trim() === '') {
+                document.getElementById('emailError').textContent = 'Email is required';
+                isValid = false;
+            } else if (!isValidEmail(email)) {
+                document.getElementById('emailError').textContent = 'Invalid email format';
+                isValid = false;
+            }
+
+            // Validate password
+            if (password.trim() === '') {
+                document.getElementById('passwordError').textContent = 'Password is required';
+                isValid = false;
+            }
+
+            // Validate account type
+            if (accountType === '') {
+                document.getElementById('accountTypeError').textContent = 'Account type is required';
+                isValid = false;
+            }
+            else {
+                alert('created successfully');
+            }
+            return isValid;
+        }
+
+        function isValidEmail(email) {
+            // A simple email validation regex
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function createUser() {
+            if (validateForm()) {
+                // Logic for creating a new user
+                console.log("Create User");
+            }
+        }
+    </script>
+</body>
+</html>
